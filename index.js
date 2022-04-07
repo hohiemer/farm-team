@@ -14,7 +14,10 @@ async function scrape(source) {
     items.each((index, el) => {
       const article = {
         title: $(el).find(source.titleSelector).text(),
-        link: $(el).find(source.linkSelector).attr('href'),
+        ink:
+          source.articleSelector === source.linkSelector
+            ? $(el).attr('href')
+            : $(el).find(source.linkSelector).attr('href'),
         description: $(el).find(source.descriptionSelector).text(),
         image: $(el).find(source.imageSelector).attr('src'),
       };

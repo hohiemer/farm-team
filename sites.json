@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Bullhorn",
+    "channelDescription": "Bullhorn - Work",
+    "channelImage": "https://3c7sa2j7u5-flywheel.netdna-ssl.com/wp-content/themes/bullhorn/img/bullhorn_meta_img.jpg",
+    "slug": "bullhorn",
+    "url": "https://bullhorncreative.com/work",
+    "articleSelector": ".featured_work_project",
+    "titleSelector": "span.project_title",
+    "linkSelector": "a",
+    "imageSelector": "img",
+    "descriptionSelector": ""
+  }
+]

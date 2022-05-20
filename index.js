@@ -12,14 +12,21 @@ async function scrape(source) {
     const articles = [];
 
     items.each((index, el) => {
+      let image = $(el).find(source.imageSelector).attr('src');
+      if (image && image.substring(0, 1) === '/') {
+        image = source.baseurl + image;
+      }
       const article = {
-        title: $(el).find(source.titleSelector).text(),
+        title:
+          source.articleSelector === source.titleSelector
+            ? $(el).text()
+            : $(el).find(source.titleSelector).text(),
         link:
           source.articleSelector === source.linkSelector
             ? $(el).attr('href')
             : $(el).find(source.linkSelector).attr('href'),
         description: $(el).find(source.descriptionSelector).text(),
-        image: $(el).find(source.imageSelector).attr('src'),
+        image,
       };
       articles.push(article);
     });
